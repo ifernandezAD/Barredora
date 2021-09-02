@@ -1,20 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovimientoBarredora : MonoBehaviour
 {
     Rigidbody myRigid;
 
     //Variables de movimiento
-    public float vel;
+    public float vel = 30;
     public float rotationVel;
 
     public bool workModeOn = false;
 
+    //UI
+    public Text workModeText;
+   
+    
+    
+    
+
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
+        
     }
 
 
@@ -68,12 +77,19 @@ public class MovimientoBarredora : MonoBehaviour
 
     void WorkMode()
     {
-        Debug.Log("Work Mode On");
+        
+        vel = 30;
+        rotationVel = 50;
+        workModeText.enabled = true;
+        
     }
 
     void NormalMode()
     {
-        Debug.Log("Work Mode Off");
-
+        
+        vel = 60;
+        rotationVel = 30;
+        workModeText.enabled = false;
+        
     }
 }
