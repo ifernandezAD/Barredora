@@ -8,14 +8,20 @@ public class MovimientoBarredora : MonoBehaviour
     Rigidbody myRigid;
 
     //Variables de movimiento
-    public float vel = 30;
+    public float vel;
     public float rotationVel;
 
     public bool workModeOn = false;
 
     //UI
     public Text workModeText;
-   
+
+    //Referencia collider 
+    public Collider areaAspiracion;
+
+    //Shit Counter
+    private float shitCounter = 0;
+
     
     
     
@@ -23,7 +29,8 @@ public class MovimientoBarredora : MonoBehaviour
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
-        
+       
+        areaAspiracion = GameObject.Find("RadioDeAccion").GetComponent<BoxCollider>();
     }
 
 
@@ -78,10 +85,11 @@ public class MovimientoBarredora : MonoBehaviour
     void WorkMode()
     {
         
-        vel = 30;
+        vel = 20;
         rotationVel = 50;
         workModeText.enabled = true;
-        
+       
+        areaAspiracion.enabled = true;
     }
 
     void NormalMode()
@@ -90,6 +98,9 @@ public class MovimientoBarredora : MonoBehaviour
         vel = 60;
         rotationVel = 30;
         workModeText.enabled = false;
-        
+        areaAspiracion.enabled = false;
     }
+
+    
+
 }
