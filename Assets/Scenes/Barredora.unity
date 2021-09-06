@@ -237,7 +237,6 @@ GameObject:
   - component: {fileID: 328250527}
   - component: {fileID: 328250531}
   - component: {fileID: 328250532}
-  - component: {fileID: 328250533}
   m_Layer: 6
   m_Name: Barredora
   m_TagString: Barredora
@@ -357,24 +356,10 @@ MonoBehaviour:
   vel: 30
   rotationVel: 50
   workModeOn: 0
-  workModeText: {fileID: 1446680835}
-  aspirar: {fileID: 0}
-  aspirar2: {fileID: 0}
-  areaAspiracion: {fileID: 0}
---- !u!114 &328250533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 328250526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f6c446a34b9b4440a4a7d67b47b0e67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   velAbsorcion: -30
   aspirador: {fileID: 912767258}
+  workModeText: {fileID: 1446680835}
+  areaAspiracion: {fileID: 0}
 --- !u!1 &492736891
 GameObject:
   m_ObjectHideFlags: 0

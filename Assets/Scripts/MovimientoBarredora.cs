@@ -13,6 +13,11 @@ public class MovimientoBarredora : MonoBehaviour
 
     public bool workModeOn = false;
 
+    //Variables Aspirar
+    public float velAbsorcion;
+    public GameObject aspirador;
+    private Vector3 dirAspiracion;
+
     //UI
     public Text workModeText;
 
@@ -22,14 +27,14 @@ public class MovimientoBarredora : MonoBehaviour
     //Shit Counter
     private float shitCounter = 0;
 
-    
-    
-    
+
+
+
 
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
-       
+
         areaAspiracion = GameObject.Find("RadioDeAccion").GetComponent<BoxCollider>();
     }
 
@@ -46,7 +51,7 @@ public class MovimientoBarredora : MonoBehaviour
         {
             NormalMode();
         }
-        
+
     }
 
     void Controls()
@@ -84,23 +89,45 @@ public class MovimientoBarredora : MonoBehaviour
 
     void WorkMode()
     {
-        
+
         vel = 20;
         rotationVel = 50;
         workModeText.enabled = true;
-       
+
         areaAspiracion.enabled = true;
     }
 
     void NormalMode()
     {
-        
+
         vel = 60;
         rotationVel = 30;
         workModeText.enabled = false;
         areaAspiracion.enabled = false;
     }
 
-    
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == ("Mierda")&&shitCounter<=10)
+        {
+            dirAspiracion = other.transform.position - aspirador.transform.position;
+            other.transform.Translate(dirAspiracion.normalized * velAbsorcion * Time.deltaTime, Space.World);
 
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == ("Mierda") && shitCounter <= 10)
+        {
+            Destroy(other.gameObject);
+            ++shitCounter;
+        }
+
+        void Descargar()
+        {
+
+
+        }
+    }
 }
