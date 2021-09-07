@@ -27,6 +27,9 @@ public class MovimientoBarredora : MonoBehaviour
     //Shit Counter
     private float shitCounter = 0;
 
+    //Variables Descargar
+    public GameObject bloqueDeMierda;
+    public GameObject posDescarga;
 
 
 
@@ -42,6 +45,8 @@ public class MovimientoBarredora : MonoBehaviour
     void Update()
     {
         Controls();
+        Descargar();
+        
 
         if (workModeOn)
         {
@@ -124,10 +129,20 @@ public class MovimientoBarredora : MonoBehaviour
             ++shitCounter;
         }
 
-        void Descargar()
-        {
+        
+    }
 
+    void Descargar()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            bloqueDeMierda.transform.localScale = new Vector3 (shitCounter,shitCounter,shitCounter);
+
+            Instantiate(bloqueDeMierda, posDescarga.transform.position, bloqueDeMierda.transform.rotation);
+
+            shitCounter = 0;
 
         }
+
     }
 }
