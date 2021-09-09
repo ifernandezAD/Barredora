@@ -28,7 +28,7 @@ public class ShitSpawn : MonoBehaviour
 
     void Spawning()
     {
-        spawnPos = new Vector3(Random.Range(-limit, limit), 1, Random.Range(-limit, limit));
+        spawnPos = new Vector3(Random.Range(-20, -3), 1, Random.Range(-12, 0));
 
         Instantiate(shit[Random.Range(0, 3)], spawnPos, shit[0].transform.rotation);
     }

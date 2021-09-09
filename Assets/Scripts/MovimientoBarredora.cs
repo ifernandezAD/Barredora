@@ -30,6 +30,7 @@ public class MovimientoBarredora : MonoBehaviour
     //Variables Descargar
     public GameObject bloqueDeMierda;
     public GameObject posDescarga;
+    
 
 
 
@@ -95,7 +96,7 @@ public class MovimientoBarredora : MonoBehaviour
     void WorkMode()
     {
 
-        vel = 20;
+        vel = 13;
         rotationVel = 50;
         workModeText.enabled = true;
 
@@ -105,7 +106,7 @@ public class MovimientoBarredora : MonoBehaviour
     void NormalMode()
     {
 
-        vel = 60;
+        vel = 20;
         rotationVel = 30;
         workModeText.enabled = false;
         areaAspiracion.enabled = false;
@@ -136,12 +137,12 @@ public class MovimientoBarredora : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            bloqueDeMierda.transform.localScale = new Vector3 (shitCounter,shitCounter,shitCounter);
+            bloqueDeMierda.transform.localScale = new Vector3 (shitCounter/10,shitCounter/10,shitCounter/10);
 
             Instantiate(bloqueDeMierda, posDescarga.transform.position, bloqueDeMierda.transform.rotation);
 
             shitCounter = 0;
-
+            bloqueDeMierda.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         }
 
     }
