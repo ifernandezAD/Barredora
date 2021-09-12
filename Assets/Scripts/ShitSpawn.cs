@@ -13,7 +13,7 @@ public class ShitSpawn : MonoBehaviour
 
     //Invoke
     private float delay = 2;
-    private float spawnRate = 1;
+    private float spawnRate = 2;
 
     void Start()
     {

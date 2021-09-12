@@ -30,6 +30,12 @@ public class MovimientoBarredora : MonoBehaviour
     //Variables Descargar
     public GameObject bloqueDeMierda;
     public GameObject posDescarga;
+
+    //Efectos de particulas
+    public ParticleSystem dust;
+
+    //Sonidos
+    public AudioSource myAudioSource;
     
 
 
@@ -38,6 +44,7 @@ public class MovimientoBarredora : MonoBehaviour
     void Start()
     {
         myRigid = GetComponent<Rigidbody>();
+        myAudioSource = GetComponent<AudioSource>();
 
         areaAspiracion = GameObject.Find("RadioDeAccion").GetComponent<BoxCollider>();
     }
@@ -101,6 +108,7 @@ public class MovimientoBarredora : MonoBehaviour
         workModeText.enabled = true;
 
         areaAspiracion.enabled = true;
+        myAudioSource.Play();
     }
 
     void NormalMode()
@@ -110,6 +118,7 @@ public class MovimientoBarredora : MonoBehaviour
         rotationVel = 30;
         workModeText.enabled = false;
         areaAspiracion.enabled = false;
+        myAudioSource.Stop();
     }
 
     private void OnTriggerStay(Collider other)
@@ -127,6 +136,7 @@ public class MovimientoBarredora : MonoBehaviour
         if (other.gameObject.tag == ("Mierda") && shitCounter <= 10)
         {
             Destroy(other.gameObject);
+            dust.Play();
             ++shitCounter;
         }
 
